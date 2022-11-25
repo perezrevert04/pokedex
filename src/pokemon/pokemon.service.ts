@@ -89,6 +89,6 @@ export class PokemonService {
       throw new BadRequestException('Pokemon already exists', error.keyValue);
     }
 
-    throw new InternalServerErrorException("Can't create pokemon");
+    throw new InternalServerErrorException("Can't create/update pokemon");
   }
 }
