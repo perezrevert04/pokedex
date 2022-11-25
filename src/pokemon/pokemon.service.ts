@@ -59,8 +59,21 @@ export class PokemonService {
     return pokemon;
   }
 
-  update(id: number, updatePokemonDto: UpdatePokemonDto) {
-    return updatePokemonDto;
+  async update(term: string, updatePokemonDto: UpdatePokemonDto) {
+    const pokemon: Pokemon = await this.findOne(term);
+
+    if (updatePokemonDto.name) {
+      updatePokemonDto.name = updatePokemonDto.name.toLowerCase();
+    }
+
+    await this.pokemonModel.updateOne({ _id: pokemon._id }, updatePokemonDto, {
+      new: true
+    });
+
+    return {
+      ...pokemon.toJSON(),
+      ...updatePokemonDto
+    };
   }
 
   remove(id: number) {
