@@ -19,12 +19,12 @@ export class SeedService {
       'https://pokeapi.co/api/v2/pokemon?limit=650'
     );
 
-    const insertions = data.results.map(({ name, url }) => {
+    const pokemonToBeInserted = data.results.map(({ name, url }) => {
       const no = url.split('/')[6];
-      return this.pokemonModel.create({ no, name }).catch(console.error);
+      return { name, no };
     });
 
-    await Promise.all(insertions);
+    await this.pokemonModel.insertMany(pokemonToBeInserted);
 
     return 'Seeding complete';
   }

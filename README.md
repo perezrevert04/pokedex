@@ -46,6 +46,12 @@ $ npm install
 $ docker-compose up -d
 ```
 
+4. Rebuild database
+
+```
+http://localhost:3000/api/v2/seed
+```
+
 ## Stack
 
 * MongoDB
