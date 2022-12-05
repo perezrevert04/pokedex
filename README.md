@@ -46,7 +46,16 @@ $ npm install
 $ docker-compose up -d
 ```
 
-4. Rebuild database
+4. Clone the ```.env.template``` file, rename to ```.env``` and fill the the enviroment variables
+
+5. Run in dev
+
+```
+npm run start:dev
+```
+
+
+6. Rebuild database
 
 ```
 http://localhost:3000/api/v2/seed
