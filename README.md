@@ -61,6 +61,10 @@ npm run start:dev
 http://localhost:3000/api/v2/seed
 ```
 
+## Docker build
+
+Run ```npm run docker:build``` for build a docker image.
+
 ## Stack
 
 * MongoDB
